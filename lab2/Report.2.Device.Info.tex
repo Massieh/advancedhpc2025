@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Lab 2 HPC}
+\author{massieh sediq}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+This lab focused on querying GPU information with Numba.
+
+\section{Lab results}
+
+\subsection*{Detecting GPU}
+To check available CUDA devices:
+\begin{verbatim}
+numba.cuda.detect()
+\end{verbatim}
+1 GPU was detected : Tesla T4 
+
+\subsection*{Selecting the Device}
+\begin{verbatim}
+gpu = numba.cuda.select_device(0)
+\end{verbatim}
+
+\subsection*{GPU Details}
+The following information was retrieved:
+\begin{itemize}
+    \item Name: Tesla T4
+    \item Compute capability: 7.5
+    \item Multiprocessors: 40
+    \item Total cores (64 per SM): 2560
+\end{itemize}
+
+\subsection*{Memory Information}
+\begin{verbatim}
+free, total = gpu.get_memory_info()
+\end{verbatim}
+The GPU reports approximately:
+\begin{itemize}
+    \item Free memory: 15.7 GB
+    \item Total memory: 15.8 GB
+\end{itemize}
+
+\end{document}
